@@ -3,6 +3,7 @@
 import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/NavBar";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -129,19 +130,27 @@ export default function MyBatchPage() {
     <>
       <NavBar />
       <div id="mybatch" className="container mx-auto p-3 grid gap-6">
-        <div className="bg-amber-900 p-6 rounded-lg border border-black/60">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="bg-amber-900 p-6 rounded-lg border border-black/60"
+        >
           <h1 className="text-center text-slate-300 text-3xl capitalize">
             Testimonials from our Various Batches
           </h1>
           <h1 className="text-center text-3xl uppercase font-semibold text-blue-950 underline underline-offset-1">
             Batch A
           </h1>
-        </div>
+        </motion.div>
 
         {testimonials.map((testimonial, index) => (
-          <div
+          <motion.div
             key={index}
             className="flex items-center space-x-4 p-4 h-56 shadow-md rounded-lg border border-blue-200 bg-stone-400 hover:bg-stone-600"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             {images[index] ? (
               <Image
@@ -163,7 +172,7 @@ export default function MyBatchPage() {
               </p>
               <p className="mt-2 text-black">{testimonial.text}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <Footer />

@@ -1,0 +1,18 @@
+.swiper-button-next {
+  color: rgba(0, 0, 0, 0.439);
+  font-size: 20px;
+}
+
+.swiper-button-prev {
+  color: rgba(0, 0, 0, 0.439);
+  font-size: 20px;
+}
+
+.swiper-pagination-bullet {
+  background-color: gray;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #2d682f;
+}

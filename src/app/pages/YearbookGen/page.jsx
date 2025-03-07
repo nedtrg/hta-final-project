@@ -42,7 +42,7 @@ export default function YearbookGen() {
             <Link
               href={yearclass.links}
               key={yearclass.id}
-              className="bg-stone-400 rounded-xl shadow-md overflow-hidden border border-blue-200"
+              className="bg-stone-400 rounded-xl shadow-md overflow-hidden border border-blue-200 hover:bg-stone-600/90"
             >
               <img
                 src={yearclass.logo}

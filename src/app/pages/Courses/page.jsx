@@ -142,10 +142,13 @@ export default function CoursesPage() {
         </motion.h4>
         <div className="grid grid-cols-3 mt-9 gap-6">
           {paginatedCourses.map((course, index) => (
-            <Link
+            <motion.a
               href="/"
               key={index}
               className="shadow-lg w-80 h-96 ml-12 justify-center border-2 border-blue-200 rounded-xl flex flex-col items-center transition-all"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div
                 className="bg-stone-400 w-full h-40 place-items-center z-0 items-center rounded-t-lg rounded-b-none hover:bg-slate-700/20"
@@ -174,7 +177,7 @@ export default function CoursesPage() {
                   {course.title}
                 </p>
               </div>
-            </Link>
+            </motion.a>
           ))}
         </div>
         <div className="flex justify-center mt-6 space-x-2">

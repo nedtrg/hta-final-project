@@ -1,3 +1,4 @@
+import BackToTopButton from "@/app/components/Backtotop";
 import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/NavBar";
 import Link from "next/link";
@@ -57,6 +58,7 @@ export default function YearbookGen() {
         </div>
       </div>
       <Footer />
+      <BackToTopButton />
     </>
   );
 }

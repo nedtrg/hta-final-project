@@ -391,7 +391,7 @@ const Outlet = () => {
                       </label>
                       <input
                         type="text"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-800"
                         placeholder="Enter your name"
                         required
                       />
@@ -403,7 +403,7 @@ const Outlet = () => {
                       </label>
                       <input
                         type="email"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-800"
                         placeholder="Enter your email"
                         required
                       />
@@ -414,7 +414,7 @@ const Outlet = () => {
                         Your Message
                       </label>
                       <textarea
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-800"
                         placeholder="Type your message..."
                         rows={4}
                         required

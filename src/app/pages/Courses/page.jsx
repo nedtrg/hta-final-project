@@ -5,6 +5,7 @@ import Image from "next/image";
 import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
+import BackToTopButton from "@/app/components/Backtotop";
 
 const courses = [
   {
@@ -197,6 +198,7 @@ export default function CoursesPage() {
         </div>
       </div>
       <Footer />
+      <BackToTopButton />
     </>
   );
 }

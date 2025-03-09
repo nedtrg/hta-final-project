@@ -4,6 +4,7 @@ import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/NavBar";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import BackToTopButton from "@/app/components/Backtotop";
 
 const testimonials = [
   {
@@ -176,6 +177,7 @@ export default function MyBatchPage() {
         ))}
       </div>
       <Footer />
+      <BackToTopButton />
     </>
   );
 }

@@ -4,6 +4,8 @@ import "./components/css/embla.css";
 import NavBar from "./components/NavBar";
 import Outlet from "./components/Outlet";
 import Footer from "./components/Footer";
+import Backtotop from "./components/Backtotop";
+import FixedButtons from "./components/FixedButtons";
 
 const OPTIONS = {};
 const SLIDE_COUNT = 5;
@@ -15,6 +17,8 @@ const App = () => (
     <EmblaCarousel slides={SLIDES} options={OPTIONS} />
     <Outlet />
     <Footer />
+    <Backtotop />
+    <FixedButtons />
   </>
 );
 export default App;

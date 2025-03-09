@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
+import BackToTopButton from "@/app/components/Backtotop";
 
 const staticStudents = [
   {
@@ -132,6 +133,7 @@ export default function YearbookPage() {
         </div>
       </div>
       <Footer />
+      <BackToTopButton />
     </>
   );
 }

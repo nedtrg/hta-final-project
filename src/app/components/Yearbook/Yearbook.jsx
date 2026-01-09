@@ -4,7 +4,7 @@ import React from "react";
 const Yearbook = () => {
   return (
     <div className="p-8 absolute inset-0 z-1">
-      <form className="bg-white shadow-lg rounded-lg p-6 w-96 grid grid-cols-1 gap-3">
+      <form className="bg-white shadow-lg rounded-lg p-6 w-80 grid grid-cols-1 gap-3">
         <h2 className="text-xl font-bold text-gray-700 mb-6">
           Yearbook Application
         </h2>

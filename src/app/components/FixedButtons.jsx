@@ -4,33 +4,45 @@ import { IconSend } from "@tabler/icons-react";
 const FixedButtons = () => {
   return (
     <div>
-      <div>
+      <div className="fixedbuttons">
         <button
-          className="bg-stone-400 border-2 border-blue-200 rounded-lg hover:bg-slate-700/30"
+          className="
+            bg-stone-400 border-2 border-blue-200 rounded-lg
+            hover:bg-slate-700/30
+            p-2 sm:p-2.5 md:p-3
+          "
           style={{
             position: "fixed",
-            top: "300px",
+            top: "60%",
             right: "0px",
-            padding: "10px 10px",
             color: "black",
             zIndex: 1000,
           }}
         >
-          <IconSchoolBell stroke={2} width={30} height={30} />
+          <IconSchoolBell
+            stroke={2}
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-[30px] md:h-[30px]"
+          />
         </button>
 
         <button
-          className="bg-emerald-800 border-2 border-blue-200 rounded-lg hover:bg-emerald-950"
+          className="
+            bg-emerald-800 border-2 border-blue-200 rounded-lg
+            hover:bg-emerald-950
+            p-2 sm:p-2.5 md:p-3
+          "
           style={{
             position: "fixed",
-            top: "360px",
-            right: "0",
-            padding: "10px 10px",
+            top: "68%",
+            right: "0px",
             color: "white",
             zIndex: 1000,
           }}
         >
-          <IconSend stroke={2} width={30} height={30} />
+          <IconSend
+            stroke={2}
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-[30px] md:h-[30px]"
+          />
         </button>
       </div>
     </div>

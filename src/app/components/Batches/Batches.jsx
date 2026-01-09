@@ -49,7 +49,7 @@ const Batches = () => {
 
   return (
     <div className="p-8 absolute inset-0 z-1">
-      <form className="bg-white shadow-lg rounded-lg p-8 w-96 grid grid-cols-1 gap-6">
+      <form className="bg-white shadow-lg rounded-lg p-8 w-80 grid grid-cols-1 gap-6">
         <h2 className="text-xl font-bold text-gray-700 mb-6">Batches Portal</h2>
         <div>
           <label className="block mb-2 text-lg font-semibold text-gray-700">

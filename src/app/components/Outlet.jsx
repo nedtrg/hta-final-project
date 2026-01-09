@@ -93,10 +93,8 @@ const galleryImages = [
   "/image/g2.jpg",
   "/image/g3.jpg",
   "/image/g4.jpg",
-  "/image/g5.jpg",
   "/image/g6.jpg",
   "/image/g7.jpg",
-  "/image/g8.jpg",
   "/image/g9.jpg",
   "/image/g10.jpg",
   "/image/g11.jpg",
@@ -108,9 +106,9 @@ const Outlet = () => {
   return (
     <div>
       <main>
-        <section id="batches" className="py-16 mt-80 bg-gray-100">
+        <section id="batches" className="py-16 lg:mt-80 bg-yellow-50">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-blue-950 uppercase">
+            <h2 className="text-2xl lg:text-3xl font-bold text-blue-950 uppercase">
               Dive in to Get Involved
             </h2>
             <p className="capitalize text-gray-700 font-semibold">
@@ -147,7 +145,7 @@ const Outlet = () => {
         </section>
 
         <section id="courses" className="py-16 bg-gray-100">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 px-4">
             <h2 className="text-3xl font-bold text-blue-950 uppercase">
               Explore Our Courses
             </h2>
@@ -164,45 +162,68 @@ const Outlet = () => {
             loop={true}
             spaceBetween={20}
             slidesPerView={3}
-            className="container mx-auto"
+            breakpoints={{
+              0: {
+                slidesPerView: 1, // mobile
+              },
+              640: {
+                slidesPerView: 2, // tablet
+              },
+              1024: {
+                slidesPerView: 3, // desktop
+              },
+            }}
+            className="max-w-7xl mx-auto px-4"
           >
             {courses.map((course) => (
-              <SwiperSlide key={course.id}>
+              <SwiperSlide key={course.id} className="flex justify-center">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="shadow-lg w-80 h-96 ml-12 justify-center border-2 border-blue-200 rounded-xl flex flex-col items-center transition-all"
+                  className="
+            shadow-lg
+            w-full max-w-sm
+            h-96
+            border-2 border-blue-200
+            rounded-xl
+            flex flex-col
+            items-center
+            transition-all
+          "
                 >
                   <div
-                    className="bg-stone-400 w-full h-40 place-items-center z-0 items-center rounded-t-lg rounded-b-none hover:bg-slate-700/20"
+                    className="w-full h-40 z-20 rounded-t-lg hover:bg-slate-700/20"
                     style={{
                       backgroundImage: `url(${course.url})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
-                      height: "155px",
                     }}
                   >
                     <img
                       src={course.logo}
                       alt={course.name}
-                      className="w-20 h-20 m-28 z-10 rounded-full border-2 border-white"
+                      className="w-20 h-20
+                mx-auto
+                mt-24
+                rounded-full
+                border-2 border-white
+              "
                     />
                   </div>
-                  <div className="bg-amber-900 h-56 pt-16 px-10 text-center w-full rounded-t-none rounded-b-lg">
+
+                  <div className="bg-amber-900 h-56 z-0 pt-14 px-6 text-center w-full rounded-b-lg">
                     <h3 className="text-2xl pb-3 font-semibold text-blue-950">
                       {course.name}
                     </h3>
-                    <p className="text-s text-gray-200 text-center">
-                      {course.details}
-                    </p>
+                    <p className="text-sm text-gray-200">{course.details}</p>
                   </div>
                 </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <Link
               href="../pages/Courses"
               target_blacks="true"
@@ -213,7 +234,7 @@ const Outlet = () => {
           </div>
         </section>
 
-        <section id="yearbook" className="py-16 bg-stone-400 text-center">
+        <section id="yearbook" className="py-16 text-center">
           <h2 className="text-3xl font-bold text-blue-950 uppercase">
             Trainees Yearbook
           </h2>
@@ -240,40 +261,54 @@ const Outlet = () => {
           </div>
         </section>
 
-        <section id="about" className="py-16 bg-gray-100 text-center">
+        <section id="about" className="py-16 bg-gray-100 text-center px-4">
           <h2 className="text-3xl font-bold text-blue-950 uppercase">
             The Gallery
           </h2>
           <p className="text-lg text-gray-700 capitalize font-bold mt-2">
             A glimpse into events, lectures, and activities at HTA.
           </p>
+
+          {/* Top Slider */}
           <div className="mt-8">
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
-              navigation
               pagination={{ clickable: true }}
               autoplay={{ delay: 3000 }}
               loop={true}
               spaceBetween={20}
               slidesPerView={3}
-              className="container mx-auto"
+              breakpoints={{
+                0: {
+                  slidesPerView: 1, // mobile
+                },
+                640: {
+                  slidesPerView: 2, // tablet
+                },
+                1024: {
+                  slidesPerView: 3, // desktop
+                },
+              }}
+              className="max-w-7xl mx-auto"
             >
               {galleryImages.map((image, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} className="flex justify-center">
                   <IMAGE
                     src={image}
                     alt="image"
                     width={400}
                     height={400}
-                    className="rounded-xl shadow-lg"
+                    className="rounded-xl shadow-lg w-full max-w-sm"
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
 
+          {/* Gallery Section */}
           <div id="gallery" className="py-16 bg-gray-100 text-center">
-            <div className="hidden md:grid grid-cols-3 gap-4 mt-6 px-4">
+            {/* Desktop Grid */}
+            <div className="hidden md:grid grid-cols-3 gap-4 mt-6 max-w-7xl mx-auto px-4">
               {galleryImages.slice(0, 6).map((image, index) => (
                 <div
                   key={index}
@@ -282,29 +317,10 @@ const Outlet = () => {
                 ></div>
               ))}
             </div>
-
-            <div className="md:hidden mt-6">
-              <Swiper
-                modules={[Autoplay, Pagination]}
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 3000 }}
-                loop={true}
-                className="w-full h-60"
-              >
-                {images.map((image, index) => (
-                  <SwiperSlide key={index}>
-                    <div
-                      className="w-full h-60 bg-cover bg-center rounded-lg shadow-lg"
-                      style={{ backgroundImage: `url(${image})` }}
-                    ></div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
           </div>
         </section>
 
-        <section id="map" className="py-16 bg-gray-100 text-center">
+        <section id="map" className="py-16 bg-yellow-50 text-center">
           <h2 className="text-3xl font-bold text-blue-950 uppercase">
             Our Location
           </h2>
@@ -328,13 +344,13 @@ const Outlet = () => {
 
         <section
           id="contact"
-          className="py-16 bg-cover bg-center "
+          className="py-16 bg-cover bg-center"
           style={{
             backgroundImage: "url('/image/formimage.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            height: "700px",
+            height: "full",
           }}
         >
           <div>
@@ -348,8 +364,8 @@ const Outlet = () => {
                 </span>
               </p>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-stone-600/90 p-6 border-2 border-indigo-200 rounded-lg shadow-2xl">
+              <div className="flex flex-col md:flex-row gap-20">
+                <div className="bg-stone-600/90 p-6 border-2 lg:w-1/2 border-indigo-200 rounded-lg shadow-2xl">
                   <h3 className="text-2xl font-semibold text-white">
                     Contact Information
                   </h3>
@@ -379,12 +395,12 @@ const Outlet = () => {
                   </div>
                 </div>
 
-                <div className="bg-stone-800/90 text-white p-6 rounded-lg border-2 border-indigo-200 shadow-2xl">
+                <div className="bg-stone-800/90 text-white p-6 lg:w-1/2 rounded-lg border-2 border-indigo-200 shadow-2xl">
                   <h3 className="text-2xl font-semibold capitalize">
                     Send Us a Message
                   </h3>
 
-                  <form className="mt-4  ">
+                  <form className="mt-4">
                     <div className="mb-4">
                       <label className="block  font-medium mb-1">
                         <span className="text-white"> Your Name</span>

@@ -1,3 +1,7 @@
+body {
+  background-color: ivory;
+}
+
 .embla {
   max-width: 100%;
   margin: auto;
@@ -148,4 +152,26 @@
   position: relative;
   margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
   margin-top: -400px;
+}
+
+@media (max-width: 640px) {
+  body {
+    background-color: ivory;
+  }
+  .slider-headerone {
+    position: absolute;
+    margin-top: -900px;
+  }
+
+  .slider-boxes {
+    margin-top: -300px;
+  }
+
+  .embla__dot {
+    margin-top: -700px;
+  }
+
+  .fixedbuttons {
+    display: none;
+  }
 }

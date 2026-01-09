@@ -125,15 +125,16 @@ export default function CoursesPage() {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto p-6">
+
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <motion.h4
-          className="text-4xl font-bold text-center mb-6"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.span
-            className="p-2 rounded-xl text-blue-950 inline-block"
+            className="px-4 py-2 rounded-xl text-blue-950 inline-block"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -141,62 +142,86 @@ export default function CoursesPage() {
             Select A Course
           </motion.span>
         </motion.h4>
-        <div className="grid grid-cols-3 mt-9 gap-6">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {paginatedCourses.map((course, index) => (
             <motion.a
               href="/"
               key={index}
-              className="shadow-lg w-80 h-96 ml-12 justify-center border-2 border-blue-200 rounded-xl flex flex-col items-center transition-all"
+              className="
+                shadow-lg
+                w-full
+                max-w-sm
+                mx-auto
+                border-2 border-blue-200
+                rounded-xl
+                flex flex-col
+                items-center
+                transition-all
+              "
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <div
-                className="bg-stone-400 w-full h-40 place-items-center z-0 items-center rounded-t-lg rounded-b-none hover:bg-slate-700/20"
+                className="
+                  bg-stone-400
+                  w-full
+                  h-40
+                  rounded-t-lg
+                  flex
+                  justify-center
+                  items-center
+                  hover:bg-slate-700/20
+                "
                 style={{
                   backgroundImage: `url(${course.url})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  height: "155px",
                 }}
               >
                 <Image
                   src={course.image}
-                  width={200}
-                  height={100}
-                  className="w-20 h-20 m-28 z-10 border-2 border-white rounded-full"
+                  width={80}
+                  height={80}
+                  className="border-2 border-white rounded-full bg-white"
                   alt={course.title}
                 />
               </div>
 
-              <div className="bg-amber-900 h-56 pt-16 px-10 text-center w-full rounded-t-none rounded-b-lg hover:bg-slate-700/90">
-                <h3 className="text-2xl pb-3 font-semibold text-blue-950">
+              <div className="bg-amber-900 px-6 py-8 text-center w-full rounded-b-lg hover:bg-slate-700/90">
+                <h3 className="text-lg sm:text-xl font-semibold text-blue-950 mb-2">
                   {course.title}
                 </h3>
-                <p className="text-s text-gray-200 text-center">
-                  {course.title}
-                </p>
+                <p className="text-sm text-gray-200">{course.title}</p>
               </div>
             </motion.a>
           ))}
         </div>
-        <div className="flex justify-center mt-6 space-x-2">
+
+        {/* Pagination */}
+        <div className="flex flex-wrap justify-center mt-8 gap-2">
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
-              className={`px-4 py-2 border rounded ${
-                currentPage === i + 1
-                  ? "bg-emerald-900 text-white"
-                  : "bg-white text-blue-950"
-              }`}
+              className={`
+                px-3 py-2 sm:px-4
+                border rounded
+                text-sm sm:text-base
+                ${
+                  currentPage === i + 1
+                    ? "bg-emerald-900 text-white"
+                    : "bg-white text-blue-950"
+                }
+              `}
             >
               {i + 1}
             </button>
           ))}
         </div>
       </div>
+
       <Footer />
       <BackToTopButton />
     </>
